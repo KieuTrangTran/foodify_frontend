@@ -30,7 +30,7 @@ main {
 }
 
 #secondhero {
-  color: #FFD073;
+  color: #FFD073; /* help */
 }
 
 .hero {
