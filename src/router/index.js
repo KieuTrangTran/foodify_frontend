@@ -21,3 +21,6 @@ const router = createRouter({
 })
 
 export default router
+
+
+//"index.js verlinkt auf die einzelnen Unterseiten. Unterseiten in den views Ordner. Components eher Componenten die über mehrere Seiten sichtbar (zB NavBar, Footer) - Oder in die App.vue (die oberste Seite, wo man häufiger Nav, reinmacht)"
