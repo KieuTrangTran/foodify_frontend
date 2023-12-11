@@ -2,9 +2,9 @@
     <NavBar/>
     <main class="hauptsite">
 
-        <section class="about">
-            <h1>ABOUT US</h1>
-        </section>
+        <div class="redbar">
+        <h1 class="redbar-text">ABOUT US</h1>
+      </div>
         <section class="background-container">
 
             <div class="infotext">
@@ -70,15 +70,7 @@ import NavBar from '../components/NavBar.vue'
 }
 
 /* Stile für About-Section */
-.about h1 {
-    color: white;
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
-    margin: 0;
-}
-
-.about {
+.redbar {
     background-color: #EC4040;
     height: 81px;
     display: flex;
@@ -86,8 +78,16 @@ import NavBar from '../components/NavBar.vue'
     justify-content: center;
 }
 
+.redbar-text {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+
 .background-container {
-    background-image: url('https://img.freepik.com/fotos-premium/die-bestandteile-fuer-selbst-gemachte-pizza-auf-weissem-hoelzernem-hintergrund_35641-2959.jpg?w=900');
+    background-image: url('src/assets/AboutUsBG.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: local;
@@ -185,6 +185,7 @@ import NavBar from '../components/NavBar.vue'
     display: flex;
     align-items: center;
     width: 100%;
+    overflow: hidden;
 }
 
 .footer-legal-links {
@@ -222,5 +223,6 @@ footer a:hover{
     flex-direction: column;
     align-items: center;
 }
+
 
 </style>
