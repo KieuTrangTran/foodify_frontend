@@ -67,7 +67,6 @@ import NavBar from '../components/NavBar.vue'
 <style>
 .hauptsite {
     margin-top: 64px;
-//margin-bottom: 70px;
 }
 
 /* Stile für About-Section */
@@ -223,7 +222,5 @@ footer a:hover{
     flex-direction: column;
     align-items: center;
 }
-
-//gg
 
 </style>
