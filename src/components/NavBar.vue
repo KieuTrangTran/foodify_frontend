@@ -9,8 +9,8 @@ name: 'NavBar'
     <img id="foodifylogo" src="@/assets/Logo.png" alt="Logo" class="logo"/> 
       <ul>
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About Us</router-link></li>
-          <li><router-link to="/login">Login</router-link></li>
+        <li><router-link to="/about">About</router-link></li>
+        <li><router-link to="/overview">Recepies</router-link></li>
         <!-- Add other navigation links here -->
       </ul>
     </nav>
@@ -21,8 +21,8 @@ name: 'NavBar'
 
 <style>
 nav {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
     width: 100%;
   height: 64px;
   background-color: rgb(255, 255, 255);
@@ -55,14 +55,19 @@ nav li {
 }
 
 nav a {
-    color: black;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
+  color: #121212;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-nav a:hover{
-    color: #EC4040;
-    transition: 0.3s;
+nav a:hover {
+  color: #EC4040;
+  transition: 0.3s;
+}
+
+router-link {
+  text-decoration: none;
+  color: inherit;
 }
 </style>
