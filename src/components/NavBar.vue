@@ -10,6 +10,7 @@ name: 'NavBar'
       <ul>
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/about">About</router-link></li>
+        <li><router-link to="/overview">Recepies</router-link></li>
         <!-- Add other navigation links here -->
       </ul>
     </nav>
@@ -20,8 +21,8 @@ name: 'NavBar'
 
 <style>
 nav {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
     width: 100%;
   height: 64px;
   background-color: rgb(255, 255, 255);
@@ -51,6 +52,18 @@ nav ul {
 
 nav li {
   margin: 0 20px;
+}
+
+nav a {
+  color: #121212;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #EC4040;
+  transition: 0.3s;
 }
 
 router-link {
