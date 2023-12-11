@@ -9,16 +9,12 @@
                 <h2>SIGN IN WITH YOUR ACCOUNT</h2>
                 <form method="post" action='#'>
                     <fieldset class="container">
-                        <label for="email"><b>Login </b><input id="email" name="email" type="email"
+                        <label for="email" class="email-label"><b>Login </b><input id="email" name="email" type="email"
                                                                placeholder="Enter Email" required/></label>
-                        <br>
-                        <label for="new-password"><b>Password </b><input id="password" name="password" type="password"
+                        <label for="new-password" class="new-password-label"><b>Password </b><input id="password" name="password" type="password"
                                                                          pattern="[a-z0-5]{8,}"
                                                                          placeholder="Enter Password" required/></label>
 
-                        <br>
-
-                        <button type="submit" class="sign-in">Sign In</button>
 
                         <div class="extra-container">
                             <div class="remember-container">
@@ -29,6 +25,10 @@
                                 <a href="#">Forgot password?</a>
                             </div>
                         </div>
+
+                        <button type="submit" class="sign-in">Sign In</button>
+
+
                     </fieldset>
                 </form>
             </div>
@@ -44,28 +44,24 @@
             </div>
         </div>
     </main>
-    <footer>
-        <section class="testobfooterklappt">
-            <p>
-                Testtext
-            </p>
-        </section>
-    </footer>
+    <FooterComponent/>
 </template>
 
 
 <script>
 import NavBar from "@/components/NavBar.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
     name: "LoginView",
-    components: {NavBar}
+    components: {FooterComponent, NavBar}
 }
 </script>
 
 <style>
 .hauptsite2 {
     margin-top: 64px; /*Damit der Banner unter der Navbar ist*/
+    height: 750px;
 }
 
 .login h1 {
@@ -103,6 +99,13 @@ export default {
     padding-bottom: 10px;
 }
 
+.email-label b,
+.new-password-label b {
+    font-size: 10px;
+    font-weight: normal;
+    color: #333333;
+    margin-left: 10px;
+}
 
 input[type=email], input[type=password] {
     width: 100%;
@@ -112,6 +115,9 @@ input[type=email], input[type=password] {
     display: inline-block;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
+    font-size: 15px;
+    color: #808080;
+    background-color: #f2f2f2;
 }
 
 .sign-in {
@@ -183,9 +189,4 @@ p {
     padding-right: 30px;
 }
 
-/*Footerstyle*/
-.testobfooterklappt {
-    background-color: black;
-    height: 595px;
-}
 </style>

@@ -1,6 +1,7 @@
 <script setup>
 import NavBar from '../components/NavBar.vue'
 import RecepieContainer from '../components/RecepieContainer.vue';
+import FooterComponent from "@/components/FooterComponent.vue";
 </script>
 
 <template>
@@ -178,10 +179,7 @@ import RecepieContainer from '../components/RecepieContainer.vue';
     </div>
     </div>
   </main>
-  <footer>
-
-    <p>Hello</p>
-  </footer>
+    <FooterComponent/>
 </template>
 
 <style>
