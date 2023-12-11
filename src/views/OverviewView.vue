@@ -313,6 +313,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .recepies-overview h1 {
