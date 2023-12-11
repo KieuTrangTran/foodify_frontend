@@ -6,12 +6,14 @@ name: 'NavBar'
 
 <template>
     <nav>
-    <img id="foodifylogo" src="@/assets/Logo.png" alt="Logo" class="logo"/> 
+        <router-link to="/"><img id="foodifylogo" src="@/assets/Logo.png" alt="Logo" class="logo"/></router-link>
       <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/overview">Recepies</router-link></li>
-        <!-- Add other navigation links here -->
+          <li><router-link to="/overview">Recepies</router-link></li>
+          <li><router-link to="/about">About Us</router-link></li>
+          <li><router-link to="/login">Login</router-link></li>
+
+
+          <!-- Add other navigation links here -->
       </ul>
     </nav>
 

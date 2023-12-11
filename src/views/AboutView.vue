@@ -218,7 +218,7 @@ footer a:hover{
 }
 
 .footer-content {
-    width: 100%;
+    width: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
