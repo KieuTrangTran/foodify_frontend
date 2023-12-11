@@ -5,8 +5,12 @@
             <h1>ACCOUNT</h1>
         </div>
         <div class="box">
+            <div class="content-container-account">
+
             <div class="sign-in-section">
+
                 <h2>SIGN IN WITH YOUR ACCOUNT</h2>
+
                 <form method="post" action='#'>
                     <fieldset class="container">
                         <label for="email" class="email-label"><b>Login </b><input id="email" name="email" type="email"
@@ -41,6 +45,7 @@
                 <p>Don't have an account?</p>
                     <a href="#">Sign up now</a>
                 </div>
+            </div>
             </div>
         </div>
     </main>
@@ -91,6 +96,10 @@ export default {
     max-width: 622px;
 }
 
+.content-container-account {
+    background-color: aquamarine;
+}
+
 .sign-in-section h2 {
     font-size: 25px;
     text-align: center;
@@ -138,7 +147,6 @@ input[type=email], input[type=password] {
 
 .remember-container,
 .password {
-    background-color: aqua;
 }
 
 .extra-container {
@@ -148,7 +156,6 @@ input[type=email], input[type=password] {
 }
 
 .google-apple {
-    background-color: yellow;
     max-width: 622px;
     display: flex;
     flex-direction: column;
@@ -168,7 +175,6 @@ input[type=email], input[type=password] {
 }
 
 .NoAccount {
-    background-color: aquamarine;
     display: flex;
     justify-content: center;
     align-items: center;

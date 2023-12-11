@@ -1,25 +1,54 @@
 <template>
     <main>
         <NavBar/>
-        <div class="hero">
-            <div class="hero-text">
-                <h1 id="firsthero">Prep up your day with a Smile</h1>
-                <h1 id="secondhero">Quick, Tasty, Easy.</h1>
-            </div>
-            <button @click="getRecipe">View Recipes</button>
+    <button @click="createRecipe">Create Recipes</button>
+    <input v-model="nameField" placeholder="Name">
+    <input v-model="caloriesField" placeholder="Kalorien">
+    <input v-model="cookTimeField" placeholder="Kochzeit">
+    <input v-model="prepTimeField" placeholder="Vorbereitungszeit">
+    <input v-model="countryField" placeholder="Land">
 
-
-
-        </div>
+    <section>{{ allRecipes }}</section>
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Kalorien</th>
+                <th>Kochzeit</th>
+                <th>Vorbereitungszeit</th>
+                <th>Land</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-if="allRecipes.length === 0">
+                <td colspan="5">Keine Rezepte :(</td>
+            </tr>
+            <tr v-for="allRecipe in allRecipes" :key="allRecipe.id">
+                <td>{{ allRecipe.name }}</td>
+                <td>{{ allRecipe.calories }}</td>
+                <td>{{ allRecipe.cookTime }}</td>
+                <td>{{ allRecipe.prepTime }}</td>
+                <td>{{ allRecipe.country }}</td>
+            </tr>
+            <tr>
+                <td>{{ nameField }}</td>
+                <td>{{ caloriesField }}</td>
+                <td>{{ cookTimeField }}</td>
+                <td>{{ prepTimeField }}</td>
+                <td>{{ countryField }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     </main>
-
 </template>
 
 <script>
-
 import NavBar from "@/components/NavBar.vue";
 
 export default {
+
     components: {NavBar},
     data() {
         return {
@@ -82,75 +111,6 @@ export default {
 
 </script>
 
-
 <style>
-/* ... other styles... */
-
-
-
-main {
-    margin-top: 64px; /* same as the height of the fixed navbar */
-}
-
-#secondhero {
-    color: #FFD073; /* help */
-}
-
-.hero {
-    width: 100%; /* Full width */
-    height: 474px; /* Adjust height as needed */
-    background-image: url('@/assets/HeroBackground.jpeg');
-    background-size: cover;
-    background-position: bottom;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #353535;
-    margin-top: 0; /* Remove any margin that might have been previously added */
-    position: relative; /* Ensure it respects the z-index */
-    z-index: 1; /* Lower than NavBar */
-    justify-content: space-between;
-    flex-direction: column;
-    padding-top: 90px;
-    padding-bottom: 140px;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
-    z-index: -1; /* Behind the content of the hero section */
-}
-
-.hero-text {
-    text-align: center;
-    color: rgb(255, 255, 255); /* Adjust text color as needed */
-}
-
-.hero-text h1 {
-    font-weight: bold;
-}
-
-button {
-    background-color: #EC4040; /* Button color */
-    color: white;
-    border: none;
-    padding: 10px 30px;
-    cursor: pointer;
-    border-radius: 8px !important;
-}
-
-button:hover {
-    background-color: #c23333; /* Darker shade for hover effect */
-}
-
-tr {
-    display: flex;
-    flex-direction: column;
-}
 
 </style>
