@@ -9,7 +9,8 @@ name: 'NavBar'
     <img id="foodifylogo" src="@/assets/Logo.png" alt="Logo" class="logo"/> 
       <ul>
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
+        <li><router-link to="/about">About Us</router-link></li>
+          <li><router-link to="/login">Login</router-link></li>
         <!-- Add other navigation links here -->
       </ul>
     </nav>
@@ -53,8 +54,15 @@ nav li {
   margin: 0 20px;
 }
 
-router-link {
-  text-decoration: none;
-  color: inherit;
+nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav a:hover{
+    color: #EC4040;
+    transition: 0.3s;
 }
 </style>
