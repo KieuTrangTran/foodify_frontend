@@ -109,7 +109,6 @@ main {
     margin-top: 0; /* Remove any margin that might have been previously added */
     position: relative; /* Ensure it respects the z-index */
     z-index: 1; /* Lower than NavBar */
-    justify-content: space-between;
     flex-direction: column;
     padding-top: 90px;
     padding-bottom: 140px;
