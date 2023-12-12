@@ -10,7 +10,7 @@
             </div>
             <div class="line"></div>
             <div class="legal-stuff">
-                <img id="foodifylogo" src="@/assets/Logo.png" alt="Logo" class="logo"/>
+                <img id="foodifylogo" src="@/assets/LogoWhite.png" alt="LogoWhite" class="logo-white"/>
                 <ul class="footer-legal-links">
                     <li class="legal-impressum"><router-link to="/">Impressum</router-link></li>
                     <li class="legal-datenschutz"><router-link to="/about">Datenschutz</router-link></li>
@@ -28,6 +28,15 @@ export default {
 </script>
 
 <style>
+
+.logo-white {
+    height: auto;
+    width: 100px;
+}
+
+dl, ol, ul {
+    margin-bottom: 0;
+}
 /*Styles für den Footer*/
 .footer-section {
     background-color: #121212;

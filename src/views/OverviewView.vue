@@ -162,13 +162,6 @@ import FooterComponent from "@/components/FooterComponent.vue";
                     link="/avocado-salad"
             />
 
-            <RecepieContainer
-                    image="src/assets/PrepBox1.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
 
         </div>
         <p class="endtext">OOPS YOU'VE REACHED THE END</p>
@@ -201,6 +194,7 @@ footer {
     z-index: 1;
     overflow: hidden;
     max-width: 100%;
+    top: 0;
 }
 
 .baked-icon, .burger-icon, .egg-icon {
@@ -239,6 +233,7 @@ footer {
     font-weight: bold;
     color: #808080;
     z-index: 2;
+    margin-bottom: 60px;
 }
 
 label {
@@ -289,7 +284,7 @@ label {
     flex-direction: row;
     flex-wrap: wrap; /* Enable wrapping */
     max-width: 1164px;
-    max-height: 1270px;
+    max-height: 847px;
     overflow: hidden;
     height: auto;
     justify-content: center; /* Center the items */
@@ -298,7 +293,7 @@ label {
 
 .recepies-overview {
     width: 100%;
-    height: 1540px;
+    height: auto;
     display: flex;
     justify-content: flex-start;
     align-items: center;

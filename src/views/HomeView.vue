@@ -1,3 +1,9 @@
+<script setup>
+import NavBar from '../components/NavBar.vue'
+import RecepieContainer from '../components/RecepieContainer.vue';
+import FooterComponent from "@/components/FooterComponent.vue";
+</script>
+
 <template>
     <main>
         <NavBar/>
@@ -6,21 +12,122 @@
                 <h1 id="firsthero">Prep up your day with a Smile</h1>
                 <h1 id="secondhero">Quick, Tasty, Easy.</h1>
             </div>
-            <button @click="getRecipe">View Recipes</button>
-
-
+            <div class="herobuttons">
+                <button @click="getRecipe" class="view-recipes-button">View Recipes</button>
+                <button @click="navigateToCreate" class="create-new-button">+</button>
+</div>
 
         </div>
-    </main>
 
+        <div class="new-recipe-container">
+
+            <div class="new-recipe-content">
+                <h1>NEW RECIPES</h1>
+                
+                <div class="recepie-containers">
+
+            <RecepieContainer
+                    image="src/assets/PrepBox1.jpg" 
+                    title="AVOCADO SALAD" 
+                    preference="Vegetarian" 
+                    details="530 CALS/45 MIN."
+                    link="/avocado-salad"
+            />
+
+            <RecepieContainer
+                    image="src/assets/PrepBox2.jpg" 
+                    title="QUINOA SALAD" 
+                    preference="Vegan" 
+                    details="420 CALS/15 MIN."
+                    link="/quinoa-salad"
+            />
+
+            <RecepieContainer
+                    image="src/assets/PrepBox2.jpg" 
+                    title="QUINOA SALAD" 
+                    preference="Vegan" 
+                    details="420 CALS/15 MIN."
+                    link="/quinoa-salad"
+            />
+
+            <RecepieContainer
+                    image="src/assets/PrepBox2.jpg" 
+                    title="QUINOA SALAD" 
+                    preference="Vegan" 
+                    details="420 CALS/15 MIN."
+                    link="/quinoa-salad"
+            />
+
+            <RecepieContainer
+                    image="src/assets/PrepBox2.jpg" 
+                    title="QUINOA SALAD" 
+                    preference="Vegan" 
+                    details="420 CALS/15 MIN."
+                    link="/quinoa-salad"
+            />
+
+            <RecepieContainer
+                    image="src/assets/PrepBox2.jpg" 
+                    title="QUINOA SALAD" 
+                    preference="Vegan" 
+                    details="420 CALS/15 MIN."
+                    link="/quinoa-salad"
+            />
+
+            <RecepieContainer
+                    image="src/assets/PrepBox2.jpg" 
+                    title="QUINOA SALAD" 
+                    preference="Vegan" 
+                    details="420 CALS/15 MIN."
+                    link="/quinoa-salad"
+            />
+
+            <RecepieContainer
+                    image="src/assets/PrepBox2.jpg" 
+                    title="QUINOA SALAD" 
+                    preference="Vegan" 
+                    details="420 CALS/15 MIN."
+                    link="/quinoa-salad"
+            />
+
+                </div>
+                <a class="viewall" href="/">VIEW ALL</a>
+                <div class="backgroundicons-home">
+        <img src="src/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-home"/>
+        <img src="src/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-home"/>
+        <img src="src/assets/EggIcon.svg" alt="Egg Icon" class="egg-icon-home"/>
+    </div>
+            </div>
+        </div>
+        <div class="redgoals">
+            <h2 class="redgoals-heading">RECIPES FOR YOUR GOALS</h2>
+            <div class="goalcontainers">
+
+                <div class="lose-weight-container">
+                    <img src="src/assets/ScaleIcon.svg" alt="Scale Icon" class="scale-icon"/>
+                    <p>LOSE WEIGHT</p>
+                </div>
+
+                <div class="build-muscle-container">
+                    <img src="src/assets/MuscleIcon.svg" alt="Muscle Icon" class="muscle-icon"/>
+                    <p>BUILD MUSCLE</p>
+                </div>
+
+                <div class="balanced-diet-container">
+                    <img src="src/assets/DietIcon.svg" alt="Food Icon" class="food-icon"/>
+                    <p>BALANCED DIET</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <FooterComponent/>
 </template>
 
 <script>
 
-import NavBar from "@/components/NavBar.vue";
-
 export default {
-    components: {NavBar},
+    components: { NavBar, RecepieContainer },
     data() {
         return {
             nameField: "",
@@ -47,6 +154,10 @@ export default {
                 }).then(result => {
                 console.log(this.allRecipes = result)
             }).catch(error => console.log("error", error))
+        },
+
+        navigateToCreate() {
+            this.$router.push('/create');
         },
 
         createRecipe() {
@@ -84,9 +195,142 @@ export default {
 
 
 <style>
+
+.plus-icon {
+    height: auto;
+    width: 21px;
+}
+
+.goalcontainers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.scale-icon, .muscle-icon, .food-icon {
+    height: auto;
+    width: 100px;
+    padding-bottom: 50px;
+    padding-top: 60px;
+}
+
+.redgoals h2 {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 76px;
+    margin-bottom: 57px;
+}
+
+.lose-weight-container, .build-muscle-container, .balanced-diet-container {
+    height: 347px;
+    width: 296px;
+    background-color: #EC4040;
+    border: #fff 2px solid;
+    border-radius: 36px;
+    box-shadow: 2px 6px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 33px;
+    margin-right: 33px;
+}
+
+.lose-weight-container p, .build-muscle-container p, .balanced-diet-container p {
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    padding-right: 0;
+}
+
+.redgoals {
+    background-color: #EC4040;
+    position: relative;
+    width: 100%;
+    z-index: 50;
+    height: 597px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.backgroundicons-home {
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    max-width: 100%;
+    top: 450px;
+}
+
+.baked-icon-home, .burger-icon-home, .egg-icon-home {
+    z-index: 1;
+    overflow: hidden;
+}
+
+.baked-icon-home {
+    rotate: -120deg;
+    height: auto;
+    width: 557px;
+    margin-left: -15vw;
+    margin-top: 250px;
+}
+
+.burger-icon-home {
+    rotate: -17deg;
+    height: auto;
+    width: 444px;
+    margin-left: 70vw;
+    margin-top: -430px;
+}
+
+.egg-icon-home {
+    position: relative;
+    rotate: -11deg;
+    height: auto;
+    width: 500px;
+    margin-left: 40vw;
+    margin-top: 160px;
+}
+
 /* ... other styles... */
+.viewall {
+    color: #808080;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    z-index: 40;
+}
 
+.recepie-containers {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Enable wrapping */
+    max-width: 1164px;
+    max-height: 1270px;
+    overflow: hidden;
+    height: auto;
+    justify-content: center; /* Center the items */
+    z-index: 2;
+}
 
+.new-recipe-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-recipe-content h1 {
+    font-size: 25px;
+    color: #000000;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.view-recipes-button {
+    margin-top: 100px;
+}
 
 main {
     margin-top: 64px; /* same as the height of the fixed navbar */
@@ -110,8 +354,6 @@ main {
     position: relative; /* Ensure it respects the z-index */
     z-index: 1; /* Lower than NavBar */
     flex-direction: column;
-    padding-top: 90px;
-    padding-bottom: 140px;
 }
 
 .hero::before {
@@ -141,6 +383,8 @@ button {
     padding: 10px 30px;
     cursor: pointer;
     border-radius: 8px !important;
+    margin-left: 6px !important;
+    margin-right: 6px !important;
 }
 
 button:hover {
