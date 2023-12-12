@@ -1,8 +1,8 @@
 <template>
     <NavBar/>
     <main class="hauptsite2">
-        <div class="login">
-            <h1>ACCOUNT</h1>
+        <div class="redbar">
+            <h1 class="redbar-text">ACCOUNT</h1>
         </div>
         <div class="box">
             <div class="content-container-account">
@@ -31,12 +31,13 @@
                         </div>
 
                         <button type="submit" class="sign-in">Sign In</button>
+                        <div class="line-login"></div>
+
 
 
                     </fieldset>
                 </form>
             </div>
-            <hr class="hr-login">
             <div class="google-apple">
                 <button class="google">Continue with Google</button>
                 <br>
@@ -69,36 +70,34 @@ export default {
     height: 750px;
 }
 
-.login h1 {
-    color: white;
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
-    margin: 0;
-}
 
-.login {
+
+.redbar {
     background-color: #EC4040;
     height: 81px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.redbar-text {
     color: white;
     font-size: 25px;
-    text-align: center;
     font-weight: bold;
-    margin: 0;
+    margin-bottom: 0;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     max-width: 622px;
+    padding: 0;
 }
 
 .content-container-account {
-    background-color: aquamarine;
 }
+
+
 
 .sign-in-section h2 {
     font-size: 25px;
@@ -132,12 +131,15 @@ input[type=email], input[type=password] {
 .sign-in {
     background-color: #EC4040;
     color: white;
-    padding: 14px 20px;
     margin-top: 25px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     border: none;
     cursor: pointer;
     height: 48px;
     border-radius: 10px;
+    box-shadow: 2px 6px 4px rgba(0, 0, 0, 0.15);
+
 }
 
 .sign-in:hover {
@@ -145,14 +147,22 @@ input[type=email], input[type=password] {
     transition: 0.3s;
 }
 
-.remember-container,
-.password {
+.password a{
+    text-decoration: none;
 }
 
 .extra-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.line-login {
+    background-color: #e5e5e5;
+    height: 1px;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .google-apple {
@@ -172,6 +182,37 @@ input[type=email], input[type=password] {
     margin: 8px 0;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
+    box-shadow: 2px 6px 4px rgba(0, 0, 0, 0.15);
+}
+
+.google {
+    color: #808080;
+    background-color: white;
+    cursor: pointer;
+}
+
+.google:hover {
+    background-color: #e5e5e5;
+    color: #808080;
+    transition: 0.3s;
+
+}
+
+.apple {
+    color: white;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+
+}
+
+.apple:hover {
+    background-color: #e5e5e5;
+    color: #808080;
+    border: 1px solid #e5e5e5;
+    transition: 0.3s;
+
+
 }
 
 .NoAccount {
@@ -181,6 +222,10 @@ input[type=email], input[type=password] {
     flex-direction: row;
     width: 100%;
     margin-top: 10px;
+}
+
+.NoAccount a {
+    text-decoration: none;
 }
 
 @media (max-width: 570px) {
