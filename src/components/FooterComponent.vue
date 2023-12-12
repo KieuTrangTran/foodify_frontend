@@ -5,7 +5,7 @@
                 <h5 class="slogan">PREP UP YOUR DAY WITH A SMILE</h5>
                 <h4 class="title-slogan">CREATE AN ACCOUNT</h4>
                 <h5 class="goal">Foodify wants to bring you closer to your goals while saving you <br>time and money</h5>
-                <button class="register-button">REGISTER</button>
+                <button class="register-button"><router-link to="/register">REGISTER</router-link></button>
                 <h6 class="copyrights">© 2023 Foodify, GmbH</h6>
             </div>
             <div class="line"></div>
@@ -91,6 +91,12 @@ dl, ol, ul {
 .register-button:hover {
     background-color:#B22E2E ;
     transition: 0.3s;
+}
+
+.register-button a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 .copyrights {

@@ -7,59 +7,56 @@
         <div class="box">
             <div class="content-container-account">
 
-            <div class="sign-in-section">
+                <div class="sign-in-section">
 
-                <h2>SIGN IN WITH YOUR ACCOUNT</h2>
+                    <h2>SIGN UP</h2>
 
-                <form method="post" action='#'>
-                    <fieldset class="container">
-                        <label for="email" class="email-label"><b>Login </b><input id="email" name="email" type="email"
-                                                               placeholder="Enter Email" required/></label>
-                        <label for="new-password" class="new-password-label"><b>Password </b><input id="password" name="password" type="password"
-                                                                         pattern="[a-z0-5]{8,}"
-                                                                         placeholder="Enter Password" required/></label>
+                    <form method="post" action='#'>
+                        <fieldset class="container">
+                            <label for="email" class="email-label"><b>Login </b><input id="email" name="email" type="email"
+                                                                                       placeholder="Enter Email" required/></label>
+                            <label for="new-password" class="new-password-label"><b>Password </b><input id="password" name="password" type="password"
+                                                                                                        pattern="[a-z0-5]{8,}"
+                                                                                                        placeholder="Enter Password" required/></label>
+                            <label for="repeat-password" class="repeat-password-label"><b>Repeat Password </b><input id="password" name="repeat-password" type="password"
+                                                                                                        pattern="[a-z0-5]{8,}"
+                                                                                                        placeholder="Enter Password" required/></label>
 
 
-                        <div class="extra-container">
-                            <div class="remember-container">
-                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            <div class="terms-container">
+                                <p>By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+
                             </div>
 
-                            <div class="password">
-                                <a href="#">Forgot password?</a>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="sign-in">Sign In</button>
-                        <div class="line-login"></div>
+                            <button type="submit" class="sign-up">Sign Up</button>
+                            <div class="line-login"></div>
 
 
 
-                    </fieldset>
-                </form>
-            </div>
-            <div class="google-apple">
-                <button class="google">Continue with Google</button>
-                <br>
-                <button class="apple">Continue with Apple</button>
-                <div class="NoAccount">
-                <p>Don't have an account?</p>
-                    <a href="#" >Sign up now</a>
+                        </fieldset>
+                    </form>
                 </div>
-            </div>
+                <div class="google-apple">
+                    <button class="google">Sign Up with Google</button>
+                    <button class="apple">Sign Up with Apple</button>
+                    <div class="NoAccount">
+                        <p>Don't have an account?</p>
+                        <a href="#">Sign up now</a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <FooterComponent/>
-</template>
 
+</template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
-    name: "LoginView",
+    name: "RegisterView",
     components: {FooterComponent, NavBar}
 }
 </script>
@@ -108,14 +105,16 @@ export default {
 }
 
 .email-label b,
-.new-password-label b {
+.new-password-label b,
+.repeat-password-label b {
     font-size: 10px;
     font-weight: normal;
     color: #333333;
     margin-left: 10px;
 }
 
-input[type=email], input[type=password] {
+input[type=email],
+input[type=password] {
     width: 100%;
     height: 48px;
     padding: 12px 14px;
@@ -128,7 +127,12 @@ input[type=email], input[type=password] {
     background-color: #f2f2f2;
 }
 
-.sign-in {
+.terms-container p {
+    font-size: 11px;
+    text-align: center;
+}
+
+.sign-up {
     background-color: #EC4040;
     color: white;
     margin-top: 25px;
@@ -142,7 +146,7 @@ input[type=email], input[type=password] {
 
 }
 
-.sign-in:hover {
+.sign-up:hover {
     opacity: 1.8;
     transition: 0.3s;
 }
