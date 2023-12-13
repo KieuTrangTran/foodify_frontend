@@ -1,7 +1,7 @@
 <template>
     <main>
         <NavBar/>
-        <div class="redbar">
+        <div class="redbar-create">
             <h1 class="redbar-text">CREATE RECIPE</h1>
         </div>
         <div class="createsection">
@@ -126,7 +126,7 @@ export default {
     justify-content: center;
 }
 
-.redbar {
+.redbar-create {
     background-color: #EC4040;
     height: 81px;
     display: flex;
