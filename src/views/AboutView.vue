@@ -44,7 +44,7 @@ import NavBar from '../components/NavBar.vue'
 import FooterComponent from "@/components/FooterComponent.vue";
 </script>
 
-<style>
+<style scoped>
 
 .hauptsite {
     margin-top: 64px;
@@ -67,6 +67,7 @@ import FooterComponent from "@/components/FooterComponent.vue";
 }
 
 
+
 .background-container {
     background-image: url('src/assets/AboutUsBG.jpeg');
     background-size: cover;
@@ -78,12 +79,16 @@ import FooterComponent from "@/components/FooterComponent.vue";
 }
 
 .infotext {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin: 50px 120px;
     max-width: 800px;
+    height: 100vh; /* 100% der Bildschirmhöhe verwenden */
+    margin-right: 30%;
+    margin-left: 25%;
+    margin-top: 0;
+    margin-bottom: 0;
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Zentriert vertikal */
+    align-items: center; /* Hinzugefügt, um vertikal zu zentrieren */
     text-align: justify;
 
 }
@@ -95,6 +100,11 @@ import FooterComponent from "@/components/FooterComponent.vue";
 
 .info-content {
     font-size: 16px;
+}
+
+.info-title p,
+.info-content p {
+    padding-right: 0;
 }
 
 
