@@ -44,7 +44,7 @@ import NavBar from '../components/NavBar.vue'
 import FooterComponent from "@/components/FooterComponent.vue";
 </script>
 
-<style scoped>
+<style>
 
 .hauptsite {
     margin-top: 64px;
@@ -67,7 +67,6 @@ import FooterComponent from "@/components/FooterComponent.vue";
 }
 
 
-
 .background-container {
     background-image: url('src/assets/AboutUsBG.jpeg');
     background-size: cover;
@@ -75,36 +74,36 @@ import FooterComponent from "@/components/FooterComponent.vue";
     background-attachment: local;
     min-height: 100vh;
     overflow: hidden;
-
+    display: flex; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center; /* Add this line */
 }
 
 .infotext {
-    max-width: 800px;
-    height: 100vh; /* 100% der Bildschirmhöhe verwenden */
-    margin-right: 30%;
-    margin-left: 25%;
-    margin-top: 0;
-    margin-bottom: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 50px 120px;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Zentriert vertikal */
-    align-items: center; /* Hinzugefügt, um vertikal zu zentrieren */
+    align-items: center;
     text-align: justify;
-
+    background-color: #EC4040;
+    border-radius: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #fff;
 }
 
 .info-title {
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 40px;
 }
 
 .info-content {
     font-size: 16px;
-}
-
-.info-title p,
-.info-content p {
-    padding-right: 0;
+    margin-bottom: 20px;
 }
 
 
