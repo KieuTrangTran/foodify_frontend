@@ -1,6 +1,11 @@
 <template>
     <main>
         <NavBar/>
+        <div class="redbar">
+            <h1 class="redbar-text">CREATE RECIPE</h1>
+        </div>
+        <div class="createsection">
+
     <button @click="createRecipe">Create Recipes</button>
     <input v-model="nameField" placeholder="Name">
     <input v-model="caloriesField" placeholder="Kalorien">
@@ -41,6 +46,7 @@
             </tbody>
         </table>
     </div>
+</div>
     </main>
 </template>
 
@@ -112,5 +118,29 @@ export default {
 </script>
 
 <style>
+
+.createsection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.redbar {
+    background-color: #EC4040;
+    height: 81px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 150px;
+}
+
+.redbar-text {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
 
 </style>
