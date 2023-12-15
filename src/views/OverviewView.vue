@@ -191,7 +191,7 @@ footer {
 
 .backgroundicons {
     position: absolute;
-    z-index: 1;
+    z-index: -1;
     overflow: hidden;
     max-width: 100%;
     top: 0;
