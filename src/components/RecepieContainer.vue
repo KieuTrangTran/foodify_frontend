@@ -12,8 +12,8 @@
       <p class="containerpref">{{ preference }}</p>
     </div>
     <div class="containermaininfos">
-      <p class="containertitle">{{ name }}</p>
-      <p class="containercalories">{{ calories }} CALS/{{ cookTime }} MIN.</p>
+      <p class="containertitle">{{ recipe.name }}</p>
+      <p class="containercalories">{{ recipe.calories }} CALS/{{ recipe.cookTime }} MIN.</p>
     </div>
     <div class="linkcontainer">
       <a :href="link" class="containerlink">VIEW RECEPIE</a>
@@ -21,10 +21,11 @@
   </div>
   <div class="edit-window-overlay" v-if="showEditableWindow" @click.self="closeWindow">
     <EditWindow
-      :isVisible="showEditableWindow"
-      :recipeData="editableRecipeData"
-      @update:isVisible="handleEditWindowVisibility"
-    />
+    :isVisible="showEditableWindow"
+    :recipeData="editableRecipeData"
+    @update:isVisible="handleEditWindowVisibility"
+    @recipe-deleted="handleRecipeDeleted"
+  />
   </div>
 </template>
 
@@ -38,15 +39,15 @@ export default {
     EditWindow
   },
   props: {
-    name: String,
-    calories: Number,
-    cookTime: Number,
-    prepTime: Number,
+    recipe: Object,
     image: {
       type: String,
       default: 'src/assets/PrepBox1.jpg' // Setzen Sie hier den Pfad zu Ihrem Standardbild
     }
   },
+
+  emits: ['recipeSaved'],
+
   data() {
     return {
       showEditableWindow: false,
@@ -60,6 +61,17 @@ export default {
   methods: {
     toggleEditableWindow() {
       this.showEditableWindow = !this.showEditableWindow
+      if (this.showEditableWindow) {
+        // Aktualisieren Sie die Daten, bevor Sie das Fenster öffnen
+        this.editableRecipeData = {
+          id: this.recipe.id, // Make sure this is correctly set
+          name: this.recipe.name,
+          calories: this.recipe.calories,
+          cookTime: this.recipe.cookTime,
+          prepTime: this.recipe.prepTime,
+          image: this.image
+        }
+      }
       document.body.style.overflow = this.showEditableWindow ? 'hidden' : ''
     },
     closeWindow() {
@@ -69,6 +81,9 @@ export default {
     handleEditWindowVisibility(isVisible) {
       this.showEditableWindow = isVisible
       document.body.style.overflow = isVisible ? 'hidden' : ''
+    },
+    handleRecipeDeleted(deletedRecipeId) {
+      this.$emit('recipe-deleted', deletedRecipeId);
     }
     // Andere Methoden...
   }

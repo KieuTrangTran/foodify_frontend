@@ -132,6 +132,10 @@ export default {
 
 <style>
 
+main {
+    margin-top: 64px;
+}
+
 .createsection {
     display: flex;
     flex-direction: column;
