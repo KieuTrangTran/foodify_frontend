@@ -2,6 +2,23 @@
 import NavBar from '../components/NavBar.vue'
 import RecepieContainer from '../components/RecepieContainer.vue';
 import FooterComponent from "@/components/FooterComponent.vue";
+import { ref, onMounted } from 'vue';
+
+
+
+
+const recipes = ref([]);
+
+const fetchRecipes = async () => {
+    try {
+        const response = await fetch("http://localhost:8080/recipes");
+        recipes.value = await response.json();
+    } catch (error) {
+        console.error("Error fetching recipes:", error);
+    }
+};
+
+onMounted(fetchRecipes);
 </script>
 
 <template>
@@ -66,101 +83,16 @@ import FooterComponent from "@/components/FooterComponent.vue";
     <div class="recepies-overview">
         <h1 class="recepieamount">12 Recepies</h1>
         <div class="recepie-containers">
-            <RecepieContainer
-                    image="src/assets/PrepBox1.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
 
             <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox3.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox4.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox1.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox1.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox5.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox1.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox1.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
+      v-for="recipe in recipes"
+      :key="recipe.id"
+      :name="recipe.name"
+      :calories="recipe.calories"
+      :cookTime="recipe.cookTime"
+      :prepTime="recipe.prepTime"
+      :image="recipe.imageUrl"
+    />
 
 
         </div>
@@ -175,7 +107,11 @@ import FooterComponent from "@/components/FooterComponent.vue";
     <FooterComponent/>
 </template>
 
-<style>
+<style scoped>
+
+main {
+    margin-top: 64px;
+}
 
 footer {
     background-color: #121212;
@@ -284,7 +220,6 @@ label {
     flex-direction: row;
     flex-wrap: wrap; /* Enable wrapping */
     max-width: 1164px;
-    max-height: 847px;
     overflow: hidden;
     height: auto;
     justify-content: center; /* Center the items */

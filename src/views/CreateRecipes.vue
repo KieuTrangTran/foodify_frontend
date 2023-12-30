@@ -11,65 +11,52 @@
     <input v-model="caloriesField" placeholder="Kalorien">
     <input v-model="cookTimeField" placeholder="Kochzeit">
     <input v-model="prepTimeField" placeholder="Vorbereitungszeit">
-    <input v-model="countryField" placeholder="Land">
+
+    <div v-for="recipe in allRecipes" :key="recipe.id">
+            <RecipeContainer
+                :name="recipe.name"
+                :calories="recipe.calories"
+                :cookTime="recipe.cookTime"
+                :prepTime="recipe.prepTime"
+            />
+        </div>
 
     <section>{{ allRecipes }}</section>
     <div>
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Kalorien</th>
-                <th>Kochzeit</th>
-                <th>Vorbereitungszeit</th>
-                <th>Land</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-if="allRecipes.length === 0">
-                <td colspan="5">Keine Rezepte :(</td>
-            </tr>
-            <tr v-for="allRecipe in allRecipes" :key="allRecipe.id">
-                <td>{{ allRecipe.name }}</td>
-                <td>{{ allRecipe.calories }}</td>
-                <td>{{ allRecipe.cookTime }}</td>
-                <td>{{ allRecipe.prepTime }}</td>
-                <td>{{ allRecipe.country }}</td>
-            </tr>
-            <tr>
-                <td>{{ nameField }}</td>
-                <td>{{ caloriesField }}</td>
-                <td>{{ cookTimeField }}</td>
-                <td>{{ prepTimeField }}</td>
-                <td>{{ countryField }}</td>
-            </tr>
-            </tbody>
-        </table>
+        <div v-for="recipe in allRecipes" :key="recipe.id">
+                <h2>{{ recipe.name }}</h2>
+                <p>{{ recipe.calories }}</p>
+                <p>{{ recipe.cookTime }}</p>
+                <p>{{ recipe.prepTime }}</p>
+            </div>
     </div>
 </div>
+
+    
+
     </main>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
+import RecipeContainer from "@/components/RecepieContainer.vue";
 
 export default {
 
     components: {NavBar},
+    components: {RecipeContainer, NavBar},
     data() {
         return {
             nameField: "",
             caloriesField: "",
             cookTimeField: "",
             prepTimeField: "",
-            countryField: "",
-            allRecipes: []
+            allRecipes: "",
         }
 
     },
     methods: {
         getRecipe() {
-            // GET REQUEST
             const endpoint = "http://localhost:8080/recipes"
             const requestOptions = {
                 method: "GET",
@@ -77,11 +64,9 @@ export default {
             }
 
             fetch(endpoint, requestOptions)
-                .then(response => {
-                    return response.json()
-                }).then(result => {
-                console.log(this.allRecipes = result)
-            }).catch(error => console.log("error", error))
+                .then(response => response.json())
+                .then(result => this.allRecipes = result)
+                .catch(error => console.log('error', error));
         },
 
         createRecipe() {
@@ -91,7 +76,37 @@ export default {
                 calories: this.caloriesField,
                 cookTime: this.cookTimeField,
                 prepTime: this.prepTimeField,
-                country: this.countryField,
+            }
+
+            const requestOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }
+
+            fetch(endpoint, requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Success:", data);
+                    this.getRecipe(); // Aktualisieren Sie die Rezeptliste nach dem Erstellen eines neuen Rezepts
+                })
+                .catch(error => console.log("error", error));
+        }
+    },
+
+    mounted() {
+    this.getRecipe();
+},
+
+        createRecipe() {
+            const endpoint = "http://localhost:8080/recipes"
+            const data = {
+                name: this.nameField,
+                calories: this.caloriesField,
+                cookTime: this.cookTimeField,
+                prepTime: this.prepTimeField,
 
             }
 
@@ -111,8 +126,6 @@ export default {
         }
     }
 
-
-}
 
 
 </script>

@@ -2,6 +2,20 @@
 import NavBar from '../components/NavBar.vue'
 import RecepieContainer from '../components/RecepieContainer.vue';
 import FooterComponent from "@/components/FooterComponent.vue";
+import { ref, onMounted } from 'vue';
+
+const recipes = ref([]);
+
+const fetchRecipes = async () => {
+    try {
+        const response = await fetch("http://localhost:8080/recipes");
+        recipes.value = await response.json();
+    } catch (error) {
+        console.error("Error fetching recipes:", error);
+    }
+};
+
+onMounted(fetchRecipes);
 </script>
 
 <template>
@@ -26,72 +40,17 @@ import FooterComponent from "@/components/FooterComponent.vue";
                 
                 <div class="recepie-containers">
 
-            <RecepieContainer
-                    image="src/assets/PrepBox1.jpg" 
-                    title="AVOCADO SALAD" 
-                    preference="Vegetarian" 
-                    details="530 CALS/45 MIN."
-                    link="/avocado-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
-            <RecepieContainer
-                    image="src/assets/PrepBox2.jpg" 
-                    title="QUINOA SALAD" 
-                    preference="Vegan" 
-                    details="420 CALS/15 MIN."
-                    link="/quinoa-salad"
-            />
-
+                <RecepieContainer
+                    v-for="recipe in recipes"
+                    :key="recipe.id"
+                    :name="recipe.name"
+                    :calories="recipe.calories"
+                    :cookTime="recipe.cookTime"
+                    :prepTime="recipe.prepTime"
+                    :image="recipe.imageUrl"
+                    />
                 </div>
-                <a class="viewall" href="/">VIEW ALL</a>
+                <a class="viewall" href="/overview">VIEW ALL</a>
                 <div class="backgroundicons-home">
         <img src="src/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-home"/>
         <img src="src/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-home"/>
@@ -194,7 +153,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 
 .plus-icon {
     height: auto;
@@ -203,8 +162,10 @@ export default {
 
 .goalcontainers {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 .scale-icon, .muscle-icon, .food-icon {
@@ -235,6 +196,14 @@ export default {
     justify-content: center;
     margin-left: 33px;
     margin-right: 33px;
+    margin-bottom: 53px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lose-weight-container:hover, .build-muscle-container:hover, .balanced-diet-container:hover {
+    transform: scale(1.02); /* Erhöht die Größe um 5% */
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.25); /* Fügt einen Schlagschatten hinzu */
+    cursor: pointer;
 }
 
 .lose-weight-container p, .build-muscle-container p, .balanced-diet-container p {
@@ -249,7 +218,7 @@ export default {
     position: relative;
     width: 100%;
     z-index: 50;
-    height: 597px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -385,10 +354,12 @@ button {
     border-radius: 8px !important;
     margin-left: 6px !important;
     margin-right: 6px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
     background-color: #c23333; /* Darker shade for hover effect */
+    transform: scale(1.05); /* Erhöht die Größe um 5% */
 }
 
 tr {
