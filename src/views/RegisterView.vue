@@ -48,8 +48,8 @@
         </div>
         
         <div class="backgroundicons-register">
-        <img src="src/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-register"/>
-        <img src="src/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-register"/>
+        <img src="@/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-register"/>
+        <img src="@/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-register"/>
     </div>
 
     </main>
@@ -99,7 +99,7 @@ export default {
 }
 
 #repeat-password-reg, #password-reg {
-    background-image: url('src/assets/EyeIcon.svg'); /* path to your custom arrow icon */
+    background-image: url('@/assets/EyeIcon.svg'); /* path to your custom arrow icon */
     background-repeat: no-repeat;
     background-position: right 20px center; /* adjust as necessary */
     background-size: 18px;
@@ -245,7 +245,7 @@ input[type=password] {
     background-color: white;
     cursor: pointer;
 
-    background-image: url('src/assets/GoogleLogo.png'); /* path to your custom arrow icon */
+    background-image: url('@/assets/GoogleLogo.png'); /* path to your custom arrow icon */
     background-repeat: no-repeat;
     background-position: left 160px center; /* adjust as necessary */
     background-size: 24px;
@@ -263,7 +263,7 @@ input[type=password] {
     border: none;
     cursor: pointer;
 
-    background-image: url('src/assets/AppleIcon.png'); /* path to your custom arrow icon */
+    background-image: url('@/assets/AppleIcon.png'); /* path to your custom arrow icon */
     background-repeat: no-repeat;
     background-position: left 160px center; /* adjust as necessary */
     background-size: 24px;

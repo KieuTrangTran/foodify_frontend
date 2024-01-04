@@ -1,9 +1,9 @@
 <template>
   <div class="recepiecontainer">
-    <img src="src/assets/HeartIcon.svg" alt="Heart Icon" class="heart-icon" />
+    <img src="@/assets/HeartIcon.svg" alt="Heart Icon" class="heart-icon" />
     <img :src="image" :alt="title" class="container-image" />
     <img
-      src="src/assets/dots.svg"
+      src="@/assets/dots.svg"
       alt="Dots Icon"
       class="dots-icon"
       @click="toggleEditableWindow"
@@ -42,7 +42,7 @@ export default {
     recipe: Object,
     image: {
       type: String,
-      default: 'src/assets/PrepBox1.jpg' // Setzen Sie hier den Pfad zu Ihrem Standardbild
+      default: '@/assets/PrepBox1.jpg' // Setzen Sie hier den Pfad zu Ihrem Standardbild
     }
   },
 

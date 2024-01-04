@@ -99,9 +99,9 @@ const handleRecipeDeleted = (deletedRecipeId) => {
       </div>
       <p class="endtext">OOPS YOU'VE REACHED THE END</p>
       <div class="backgroundicons">
-        <img src="src/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon" />
-        <img src="src/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon" />
-        <img src="src/assets/EggIcon.svg" alt="Egg Icon" class="egg-icon" />
+        <img src="@/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon" />
+        <img src="@/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon" />
+        <img src="@/assets/EggIcon.svg" alt="Egg Icon" class="egg-icon" />
       </div>
     </div>
   </main>
@@ -207,7 +207,7 @@ label {
   border: 0;
   cursor: pointer;
 
-  background-image: url('src/assets/DropDownArrow.svg'); /* path to your custom arrow icon */
+  background-image: url('@/assets/DropDownArrow.svg'); /* path to your custom arrow icon */
   background-repeat: no-repeat;
   background-position: right 20px center; /* adjust as necessary */
   background-size: 12px;

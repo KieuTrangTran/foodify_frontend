@@ -68,7 +68,7 @@ import FooterComponent from "@/components/FooterComponent.vue";
 
 
 .background-container {
-    background-image: url('src/assets/AboutUsBG.jpeg');
+    background-image: url('@/assets/AboutUsBG.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: local;

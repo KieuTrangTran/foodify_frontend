@@ -52,9 +52,9 @@ onMounted(fetchRecipes)
         </div>
         <a class="viewall" href="/overview">VIEW ALL</a>
         <div class="backgroundicons-home">
-          <img src="src/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-home" />
-          <img src="src/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-home" />
-          <img src="src/assets/EggIcon.svg" alt="Egg Icon" class="egg-icon-home" />
+          <img src="@/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-home" />
+          <img src="@/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-home" />
+          <img src="@/assets/EggIcon.svg" alt="Egg Icon" class="egg-icon-home" />
         </div>
       </div>
     </div>
@@ -62,17 +62,17 @@ onMounted(fetchRecipes)
       <h2 class="redgoals-heading">RECIPES FOR YOUR GOALS</h2>
       <div class="goalcontainers">
         <div class="lose-weight-container">
-          <img src="src/assets/ScaleIcon.svg" alt="Scale Icon" class="scale-icon" />
+          <img src="@/assets/ScaleIcon.svg" alt="Scale Icon" class="scale-icon" />
           <p>LOSE WEIGHT</p>
         </div>
 
         <div class="build-muscle-container">
-          <img src="src/assets/MuscleIcon.svg" alt="Muscle Icon" class="muscle-icon" />
+          <img src="@/assets/MuscleIcon.svg" alt="Muscle Icon" class="muscle-icon" />
           <p>BUILD MUSCLE</p>
         </div>
 
         <div class="balanced-diet-container">
-          <img src="src/assets/DietIcon.svg" alt="Food Icon" class="food-icon" />
+          <img src="@/assets/DietIcon.svg" alt="Food Icon" class="food-icon" />
           <p>BALANCED DIET</p>
         </div>
       </div>
