@@ -302,9 +302,10 @@ input[type=email], input[type=password] {
     height: 54px;
     padding: 12px 14px;
     margin: 10px 0;
-    border-radius: 10%;
+    border-radius: 10px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     font-size: 20px;
+    border-style: none;
 }
 
 .google {
