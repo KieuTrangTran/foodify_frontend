@@ -20,6 +20,7 @@ onMounted(fetchRecipes)
 
 <template>
   <main>
+      <div>{{title}}</div>
     <NavBar />
     <div class="hero">
       <div class="hero-text">
@@ -51,26 +52,26 @@ onMounted(fetchRecipes)
         </div>
         <a class="viewall" href="/overview">VIEW ALL</a>
         <div class="backgroundicons-home">
-          <img src="src/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-home" />
-          <img src="src/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-home" />
-          <img src="src/assets/EggIcon.svg" alt="Egg Icon" class="egg-icon-home" />
+          <img src="@/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-home" />
+          <img src="@/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-home" />
+          <img src="@/assets/EggIcon.svg" alt="Egg Icon" class="egg-icon-home" />
         </div>
       </div>
     </div>
     <div class="redgoals">
       <h2 class="redgoals-heading">RECIPES FOR YOUR GOALS</h2>
       <div class="goalcontainers">
-        <a class="lose-weight-container" href="/overview">
+        <div class="lose-weight-container">
           <img src="src/assets/ScaleIcon.svg" alt="Scale Icon" class="scale-icon" />
           <p>LOSE WEIGHT</p>
         </a>
 
-        <a class="build-muscle-container" href="/overview">
+        <div class="build-muscle-container">
           <img src="src/assets/MuscleIcon.svg" alt="Muscle Icon" class="muscle-icon" />
           <p>BUILD MUSCLE</p>
         </a>
 
-        <a class="balanced-diet-container" href="/overview">
+        <div class="balanced-diet-container">
           <img src="src/assets/DietIcon.svg" alt="Food Icon" class="food-icon" />
           <p>BALANCED DIET</p>
         </a>
@@ -83,6 +84,7 @@ onMounted(fetchRecipes)
 <script>
 export default {
   components: { NavBar, RecepieContainer },
+    props: ['title'],
   data() {
     return {
       nameField: '',

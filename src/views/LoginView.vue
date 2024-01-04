@@ -54,8 +54,8 @@
             </div>
         </div>
         <div class="backgroundicons-login">
-        <img src="src/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-login"/>
-        <img src="src/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-login"/>
+        <img src="@/assets/BakedIcon.svg" alt="Baked Icon" class="baked-icon-login"/>
+        <img src="@/assets/BurgerIcon.svg" alt="Burger Icon" class="burger-icon-login"/>
     </div>
     </main>
     <FooterComponent/>
@@ -212,7 +212,7 @@ input:checked + .slider:before {
 }
 
 #password {
-    background-image: url('src/assets/EyeIcon.svg'); /* path to your custom arrow icon */
+    background-image: url('@/assets/EyeIcon.svg'); /* path to your custom arrow icon */
     background-repeat: no-repeat;
     background-position: right 20px center; /* adjust as necessary */
     background-size: 18px;
@@ -312,7 +312,7 @@ input[type=email], input[type=password] {
     background-color: white;
     cursor: pointer;
 
-    background-image: url('src/assets/GoogleLogo.png'); /* path to your custom arrow icon */
+    background-image: url('@/assets/GoogleLogo.png'); /* path to your custom arrow icon */
     background-repeat: no-repeat;
     background-position: left 160px center; /* adjust as necessary */
     background-size: 24px;
@@ -330,7 +330,7 @@ input[type=email], input[type=password] {
     border: none;
     cursor: pointer;
 
-    background-image: url('src/assets/AppleIcon.png'); /* path to your custom arrow icon */
+    background-image: url('@/assets/AppleIcon.png'); /* path to your custom arrow icon */
     background-repeat: no-repeat;
     background-position: left 160px center; /* adjust as necessary */
     background-size: 24px;
