@@ -55,9 +55,12 @@ export default {
         }
 
     },
+
     methods: {
         getRecipe() {
-            const endpoint = "http://localhost:8080/recipes"
+            const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+
+            const endpoint = url
             const requestOptions = {
                 method: "GET",
                 redirect: "follow"
@@ -70,7 +73,8 @@ export default {
         },
 
         createRecipe() {
-            const endpoint = "http://localhost:8080/recipes"
+            const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+            const endpoint = url;
             const data = {
                 name: this.nameField,
                 calories: this.caloriesField,
@@ -101,7 +105,8 @@ export default {
 },
 
         createRecipe() {
-            const endpoint = "http://localhost:8080/recipes"
+            const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+            const endpoint = url;
             const data = {
                 name: this.nameField,
                 calories: this.caloriesField,

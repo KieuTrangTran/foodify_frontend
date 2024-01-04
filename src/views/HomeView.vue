@@ -8,7 +8,8 @@ const recipes = ref([])
 
 const fetchRecipes = async () => {
   try {
-    const response = await fetch('http://localhost:8080/recipes')
+    const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+    const response = await fetch(url)
     recipes.value = await response.json()
   } catch (error) {
     console.error('Error fetching recipes:', error)
@@ -95,10 +96,12 @@ export default {
       allRecipes: []
     }
   },
+
   methods: {
     getRecipe() {
       // GET REQUEST
-      const endpoint = 'http://localhost:8080/recipes'
+      const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+      const endpoint = url;
       const requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -119,7 +122,8 @@ export default {
     },
 
     createRecipe() {
-      const endpoint = 'http://localhost:8080/recipes'
+      const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+      const endpoint = url;
       const data = {
         name: this.nameField,
         calories: this.caloriesField,

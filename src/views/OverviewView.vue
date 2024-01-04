@@ -8,7 +8,8 @@ const recipes = ref([])
 
 const fetchRecipes = async () => {
   try {
-    const response = await fetch('http://localhost:8080/recipes')
+    const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+    const response = await fetch(url)
     recipes.value = await response.json()
   } catch (error) {
     console.error('Error fetching recipes:', error)
