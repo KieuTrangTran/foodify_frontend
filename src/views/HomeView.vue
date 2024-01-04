@@ -60,20 +60,20 @@ onMounted(fetchRecipes)
     <div class="redgoals">
       <h2 class="redgoals-heading">RECIPES FOR YOUR GOALS</h2>
       <div class="goalcontainers">
-        <div class="lose-weight-container">
+        <a class="lose-weight-container" href="/overview">
           <img src="src/assets/ScaleIcon.svg" alt="Scale Icon" class="scale-icon" />
           <p>LOSE WEIGHT</p>
-        </div>
+        </a>
 
-        <div class="build-muscle-container">
+        <a class="build-muscle-container" href="/overview">
           <img src="src/assets/MuscleIcon.svg" alt="Muscle Icon" class="muscle-icon" />
           <p>BUILD MUSCLE</p>
-        </div>
+        </a>
 
-        <div class="balanced-diet-container">
+        <a class="balanced-diet-container" href="/overview">
           <img src="src/assets/DietIcon.svg" alt="Food Icon" class="food-icon" />
           <p>BALANCED DIET</p>
-        </div>
+        </a>
       </div>
     </div>
   </main>
@@ -145,6 +145,10 @@ export default {
 </script>
 
 <style scoped>
+a {
+    text-decoration: none;
+}
+
 .plus-icon {
   height: auto;
   width: 21px;
