@@ -62,17 +62,17 @@ onMounted(fetchRecipes)
       <h2 class="redgoals-heading">RECIPES FOR YOUR GOALS</h2>
       <div class="goalcontainers">
         <a class="lose-weight-container">
-          <img src="src/assets/ScaleIcon.svg" alt="Scale Icon" class="scale-icon" />
+          <img src="@/assets/ScaleIcon.svg" alt="Scale Icon" class="scale-icon" />
           <p>LOSE WEIGHT</p>
         </a>
 
         <a class="build-muscle-container">
-          <img src="src/assets/MuscleIcon.svg" alt="Muscle Icon" class="muscle-icon" />
+          <img src="@/assets/MuscleIcon.svg" alt="Muscle Icon" class="muscle-icon" />
           <p>BUILD MUSCLE</p>
         </a>
 
         <a class="balanced-diet-container">
-          <img src="src/assets/DietIcon.svg" alt="Food Icon" class="food-icon" />
+          <img src="@/assets/DietIcon.svg" alt="Food Icon" class="food-icon" />
           <p>BALANCED DIET</p>
         </a>
       </div>
