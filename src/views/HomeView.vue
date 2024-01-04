@@ -20,6 +20,7 @@ onMounted(fetchRecipes)
 
 <template>
   <main>
+      <div>{{title}}</div>
     <NavBar />
     <div class="hero">
       <div class="hero-text">
@@ -83,6 +84,7 @@ onMounted(fetchRecipes)
 <script>
 export default {
   components: { NavBar, RecepieContainer },
+    props: ['title'],
   data() {
     return {
       nameField: '',
