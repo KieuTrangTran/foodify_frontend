@@ -86,7 +86,7 @@ const handleRecipeDeleted = (deletedRecipeId) => {
       </div>
     </div>
     <div class="recepies-overview">
-      <h1 class="recepieamount">12 Recepies</h1>
+      <h1 class="recepieamount">12 Recipes</h1>
       <div class="recepie-containers">
         <div v-for="recipe in recipes" :key="recipe.id">
           <RecepieContainer
