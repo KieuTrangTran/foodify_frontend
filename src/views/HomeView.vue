@@ -8,7 +8,8 @@ const recipes = ref([])
 
 const fetchRecipes = async () => {
   try {
-    const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+    const url = `${import.meta.env.VITE_BACKEND_URL}/recipes`;
+    console.log('URL:', import.meta.env);
     const response = await fetch(url)
     recipes.value = await response.json()
   } catch (error) {
@@ -100,7 +101,7 @@ export default {
   methods: {
     getRecipe() {
       // GET REQUEST
-      const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+      const url = `${import.meta.env.VITE_BACKEND_URL}/recipes`;
       const endpoint = url;
       const requestOptions = {
         method: 'GET',
@@ -122,7 +123,7 @@ export default {
     },
 
     createRecipe() {
-      const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+      const url = `${import.meta.env.VITE_BACKEND_URL}/recipes`;
       const endpoint = url;
       const data = {
         name: this.nameField,
