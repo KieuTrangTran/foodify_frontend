@@ -44,8 +44,9 @@ watch(() => props.recipeData, (newData) => {
 
 const saveChanges = async () => {
   try {
-    console.log('URL:', 'http://localhost:8080/recipes/' + editableData.value.id); // Debugging line
-    const response = await fetch('http://localhost:8080/recipes/' + editableData.value.id, {
+    const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/${editableData.value.id}`;
+    console.log('URL:', url); // Debugging line
+    const response = await fetch(url, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -68,7 +69,8 @@ const saveChanges = async () => {
 
 const deleteRecipe = async () => {
   try {
-    const response = await fetch('http://localhost:8080/recipes/' + editableData.value.id, {
+    const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/${editableData.value.id}`;
+    const response = await fetch(url, {
       method: 'DELETE'
     });
 
