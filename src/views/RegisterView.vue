@@ -11,30 +11,14 @@
 
                     <h2>SIGN UP</h2>
 
-                    <form method="post" action='#'>
-                        <fieldset class="container">
-                            <label for="email" class="email-label-reg"><b>Login </b><input id="email" name="email" type="email"
-                                                                                       placeholder="Enter Email" required/></label>
-                            <label for="new-password" class="new-password-label-reg"><b>Password </b><input id="password-reg" name="password" type="password"
-                                                                                                        pattern="[a-z0-5]{8,}"
-                                                                                                        placeholder="Enter Password" required/></label>
-                            <label for="repeat-password" class="repeat-password-label-reg"><b>Repeat Password </b><input id="repeat-password-reg" name="repeat-password" type="password"
-                                                                                                        pattern="[a-z0-5]{8,}"
-                                                                                                        placeholder="Repeat Password" required/></label>
-
-
-                            <div class="terms-container">
-                                <p>By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
-
-                            </div>
-
-                            <button type="submit" class="sign-up">Sign Up</button>
-                            <div class="line-login"></div>
-
-
-
-                        </fieldset>
+                                        <!-- Ihr Registrierungsformular -->
+                    <form @submit.prevent="register">
+                        <input v-model="email" type="email" placeholder="Enter Email" required>
+                        <input v-model="password" type="password" placeholder="Enter Password" required>
+                        <input v-model="repeatPassword" type="password" placeholder="Repeat Password" required>
+                        <p><button type="submit">Registrieren</button></p>
                     </form>
+                    <p> <button @click="signInWithGoogle">Sign Up with Google</button></p>
                 </div>
                 <div class="google-apple">
                     <button class="google">Sign Up with Google</button>
@@ -60,10 +44,49 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
+import { ref } from 'vue';
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useRouter } from "vue-router";
+import router from "../router";
 
 export default {
     name: "RegisterView",
-    components: {FooterComponent, NavBar}
+    components: {FooterComponent, NavBar},
+
+    setup() {
+    const email = ref('');
+    const password = ref('');
+    const repeatPassword = ref('');
+
+    const register = () => {
+        createUserWithEmailAndPassword(getAuth(), email.value, password.value)
+            .then((userCredential) => {
+                // Signed in
+                console.log("Successfully registered user: ");
+                router.push("/");
+                // ...
+            })
+            .catch((error) => {
+                console.log(error.code);
+                alert(error.message);
+                // ..
+            });
+
+    };
+
+    const signInWithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(getAuth(), provider)
+            .then((result) => {
+                console.log(result.user);
+                router.push("/");
+            }).catch((error) => {
+  console.error("Fehler bei der Anmeldung mit Google:", error);
+});
+    };
+
+    return { email, password, repeatPassword, register, signInWithGoogle, signInWithPopup };
+  }
 }
 </script>
 

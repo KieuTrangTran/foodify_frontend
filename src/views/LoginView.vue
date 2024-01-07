@@ -11,37 +11,13 @@
 
                 <h2>SIGN IN WITH YOUR ACCOUNT</h2>
 
-                <form method="post" action='#'>
-                    <fieldset class="container">
-                        <label for="email" class="email-label"><b>Login </b><input id="email" name="email" type="email"
-                                                               placeholder="Enter Email" required/></label>
-
-                        <label for="new-password" class="new-password-label"><b>Password </b><input id="password" name="password" type="password"
-                                                                         pattern="[a-z0-5]{8,}"
-                                                                         placeholder="Enter Password" required/></label>
-
-
-                        <div class="extra-container">
-                            <div class="remember-container">
-    <label class="switch">
-        <input type="checkbox" v-model="rememberMe">
-        <span class="slider round"></span>
-    </label>
-    Remember me
-</div>
-
-                            <div class="password">
-                                <a href="#">Forgot password?</a>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="sign-in">Sign In</button>
-                        <div class="line-login"></div>
-
-
-
-                    </fieldset>
-                </form>
+                <form @submit.prevent="register">
+                        <input v-model="email" type="email" placeholder="Enter Email" required>
+                        <input v-model="password" type="password" placeholder="Enter Password" required>
+                        <p v-if="errMsg">{{ errMsg }}</p>
+                        <button type="submit">LogIn</button>
+                    </form>
+                    <p><button @click="signInWithGoogle">Continue with Google</button></p>
             </div>
             <div class="google-apple">
                 <button class="google">Continue with Google</button>
@@ -65,15 +41,65 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
+import { ref } from 'vue';
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useRouter } from "vue-router";
+import router from "../router";
 
 export default {
-    name: "LoginView",
+    name: "RegisterView",
     components: {FooterComponent, NavBar},
-    data() {
-        return {
-            rememberMe: true
-        };
-    }
+
+    setup() {
+    const email = ref('');
+    const password = ref('');
+    const repeatPassword = ref('');
+    const errMsg = ref(); // ERROR MESSAGE
+    
+    const register = () => {
+    
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email.value, password.value)
+            .then((userCredential) => {
+                // Signed in
+                console.log("Successfully signed in!");
+                router.push("/");
+                // ...
+            })
+            .catch((error) => {
+                console.log(error.code);
+                switch (error.code) {
+                    case "auth/invalid-email":
+                        errMsg.value = "Invalid email address.";
+                        break;
+                    case "auth/user-not-found":
+                        errMsg.value = "User not found.";
+                        break;
+                    case "auth/wrong-password":
+                        errMsg.value = "Wrong password.";
+                        break;
+                    default:
+                        errMsg.value = "Email or password was incorrect";
+                        break;
+                }
+                // ..
+            });
+
+    };
+
+    const signInWithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(getAuth(), provider)
+            .then((result) => {
+                console.log(result.user);
+                router.push("/");
+            }).catch((error) => {
+  console.error("Fehler bei der Anmeldung mit Google:", error);
+});
+    };
+
+    return { email, password, register, signInWithGoogle, signInWithPopup };
+  }
 }
 </script>
 

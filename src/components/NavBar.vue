@@ -1,6 +1,34 @@
 <script>
+import { onMounted, ref } from 'vue';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import router from '../router';
+
 export default {
-name: 'NavBar'
+  name: 'NavBar',
+  setup() {
+    const isLoggedin = ref(false);
+    let auth;
+
+    onMounted(() => {
+      auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        isLoggedin.value = !!user;
+      });
+    });
+
+    const handleSignOut = () => {
+      signOut(auth)
+        .then(() => {
+          router.push('/');
+          // Sign-out successful.
+        })
+        .catch((error) => {
+          // An error happened.
+        });
+    };
+
+    return { isLoggedin, handleSignOut };
+  }
 }
 </script>
 
@@ -10,8 +38,9 @@ name: 'NavBar'
       <ul>
           <li><router-link to="/overview">Recepies</router-link></li>
           <li><router-link to="/about">About Us</router-link></li>
-          <li><router-link to="/login">Login</router-link></li>
-
+          <li v-if="isLoggedin">Angemeldet</li>
+      <li v-else><router-link to="/login">Login</router-link></li>
+      <button @click="handleSignOut" v-if="isLoggedin">Sign Out</button>
 
           <!-- Add other navigation links here -->
       </ul>
