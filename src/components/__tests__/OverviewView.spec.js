@@ -9,6 +9,9 @@ describe('OverviewView', () => {
             { id: 2, name: 'Test Recipe 2' },
         ];
 
+        vi.mock('firebase/auth', () => {
+            return { getAuth: vi.fn(), onAuthStateChanged: vi.fn() }
+        });
         // Mock global.fetch using vitest's mocking system
         global.fetch = vi.fn(() =>
             Promise.resolve({
