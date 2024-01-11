@@ -12,9 +12,9 @@
             <div class="legal-stuff">
                 <img id="foodifylogo" src="@/assets/LogoWhite.png" alt="LogoWhite" class="logo-white"/>
                 <ul class="footer-legal-links">
-                    <li class="legal-impressum"><router-link to="/">Impressum</router-link></li>
+                    <li class="legal-impressum"><router-link to="/about">Impressum</router-link></li>
                     <li class="legal-datenschutz"><router-link to="/about">Datenschutz</router-link></li>
-                    <li class="legal-contact"><router-link to="/login">Contact</router-link></li>
+                    <li class="legal-contact"><router-link to="/about">Contact</router-link></li>
                 </ul>
             </div>
         </div>
