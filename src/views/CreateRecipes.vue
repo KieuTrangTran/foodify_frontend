@@ -43,98 +43,54 @@ import NavBar from "@/components/NavBar.vue";
 import RecipeContainer from "@/components/RecepieContainer.vue";
 
 export default {
-
-    components: {NavBar},
-    components: {RecipeContainer, NavBar},
-    data() {
-        return {
-            nameField: "",
-            caloriesField: "",
-            cookTimeField: "",
-            prepTimeField: "",
-            allRecipes: "",
-        }
-
+  name: "CreateRecipiesView",
+  components: { NavBar, RecipeContainer },
+  data() {
+    return {
+      nameField: "",
+      caloriesField: "",
+      cookTimeField: "",
+      prepTimeField: "",
+      allRecipes: [],
+    };
+  },
+  methods: {
+    getRecipe() {
+      const url = `${import.meta.env.VITE_BACKEND_URL}/recipes`;
+      fetch(url, { method: "GET" })
+        .then(response => response.json())
+        .then(result => this.allRecipes = result)
+        .catch(error => console.log('error', error));
     },
 
-    methods: {
-        getRecipe() {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
+    createRecipe() {
+      const url = `${import.meta.env.VITE_BACKEND_URL}/recipes`;
+      const data = {
+        name: this.nameField,
+        calories: this.caloriesField,
+        cookTime: this.cookTimeField,
+        prepTime: this.prepTimeField,
+      };
 
-            const endpoint = url
-            const requestOptions = {
-                method: "GET",
-                redirect: "follow"
-            }
-
-            fetch(endpoint, requestOptions)
-                .then(response => response.json())
-                .then(result => this.allRecipes = result)
-                .catch(error => console.log('error', error));
-        },
-
-        createRecipe() {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
-            const endpoint = url;
-            const data = {
-                name: this.nameField,
-                calories: this.caloriesField,
-                cookTime: this.cookTimeField,
-                prepTime: this.prepTimeField,
-            }
-
-            const requestOptions = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }
-
-            fetch(endpoint, requestOptions)
-                .then(response => response.json())
-                .then(data => {
-                    console.log("Success:", data);
-                    this.getRecipe(); // Aktualisieren Sie die Rezeptliste nach dem Erstellen eines neuen Rezepts
-                })
-                .catch(error => console.log("error", error));
-        }
-    },
-
-    mounted() {
-    this.getRecipe();
-},
-
-        createRecipe() {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/recipes/}`;
-            const endpoint = url;
-            const data = {
-                name: this.nameField,
-                calories: this.caloriesField,
-                cookTime: this.cookTimeField,
-                prepTime: this.prepTimeField,
-
-            }
-
-            const requestOptions = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }
-            fetch(endpoint, requestOptions)
-                .then(response => response.json())
-                .then(data => {
-                    console.log("Success:", data)
-                })
-                .catch(error => console.log("error", error))
-        }
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Success:", data);
+          this.getRecipe(); // Update the recipe list after creating a new recipe
+        })
+        .catch(error => console.log("error", error));
     }
-
-
-
+  },
+  mounted() {
+    this.getRecipe();
+  }
+}
 </script>
+
 
 <style>
 
