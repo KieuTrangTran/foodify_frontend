@@ -16,9 +16,9 @@
           <input id="cookTime" v-model.number="editableData.cookTime" type="number" />
         </div>
         <div>
-          <button type="submit">Save Changes</button>
-          <button @click="closeWindow" class="close-button">Close Window</button>
+          <button type="submit" class="save-changes-button">Save Changes</button>
           <button @click="deleteRecipe" class="delete-button">Delete</button>
+          <button @click="closeWindow" class="close-button">Close</button>
 
         </div>
       </form>
@@ -92,14 +92,43 @@ const closeWindow = () => {
 </script>
 
 <style scoped>
+input[type="text"],
+input[type="number"] {
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+.save-changes-button,
+.delete-button,
 .close-button {
   padding: 10px 20px;
   margin-top: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #671818;
+  background-color: #d32f2f;
   color: white;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-changes-button,
+.delete-button {
+  margin-right: 10px;
+}
+
+.save-changes-button:hover,
+.delete-button:hover,
+.close-button:hover {
+  background-color: #671818;
 }
 
 .edit-window-overlay {
