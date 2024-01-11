@@ -11,16 +11,15 @@
 
                 <h2>SIGN IN WITH YOUR ACCOUNT</h2>
 
-                <form @submit.prevent="register">
+                <form class="login_fullcontent" @submit.prevent="register">
                         <input v-model="email" type="email" placeholder="Enter Email" required>
                         <input v-model="password" type="password" placeholder="Enter Password" required>
                         <p v-if="errMsg">{{ errMsg }}</p>
-                        <button type="submit">LogIn</button>
+                        <button class="loginbutton_fire" type="submit">Sign In</button>
                     </form>
-                    <p><button @click="signInWithGoogle">Continue with Google</button></p>
+                    <p class="p_google"><button class="google" @click="signInWithGoogle">Continue with Google</button></p>
             </div>
             <div class="google-apple">
-                <button class="google">Continue with Google</button>
                 <button class="apple">Continue with Apple</button>
                 <div class="NoAccount">
                 <p>Don't have an account?</p>
@@ -104,6 +103,45 @@ export default {
 </script>
 
 <style>
+
+.p_google {
+    padding: 0;
+}
+
+.login_fullcontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+}
+
+.loginbutton_fire {
+    background-color: #EC4040;
+    color: white;
+    margin-top: 40px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border: none;
+    cursor: pointer;
+    height: 54px;
+    width: 622px;
+    border-radius: 10px;
+    box-shadow: 2px 6px 4px rgba(0, 0, 0, 0.15);
+    font-size: 20px;
+    font-weight: semibold;
+
+
+}
+
+.sign-in-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
 
 .remember-container {
     display: flex;
@@ -338,6 +376,8 @@ input[type=email], input[type=password] {
     color: #808080;
     background-color: white;
     cursor: pointer;
+    width: 622px;
+    
 
     background-image: url('@/assets/GoogleLogo.png'); /* path to your custom arrow icon */
     background-repeat: no-repeat;

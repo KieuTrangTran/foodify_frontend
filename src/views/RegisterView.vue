@@ -12,16 +12,15 @@
                     <h2>SIGN UP</h2>
 
                                         <!-- Ihr Registrierungsformular -->
-                    <form @submit.prevent="register">
+                    <form class="register_fullcontent" @submit.prevent="register">
                         <input v-model="email" type="email" placeholder="Enter Email" required>
                         <input v-model="password" type="password" placeholder="Enter Password" required>
                         <input v-model="repeatPassword" type="password" placeholder="Repeat Password" required>
-                        <p><button type="submit">Registrieren</button></p>
+                        <p class="regb_p"><button class="regbutton_fire" type="submit">Sign Up</button></p>
                     </form>
-                    <p> <button @click="signInWithGoogle">Sign Up with Google</button></p>
+                    <p class="pgoogle"> <button class="google" @click="signInWithGoogle">Sign Up with Google</button></p>
                 </div>
                 <div class="google-apple">
-                    <button class="google">Sign Up with Google</button>
                     <button class="apple">Sign Up with Apple</button>
                     <div class="AlrdyAccount">
                         <p>Already have an account?</p>
@@ -91,6 +90,49 @@ export default {
 </script>
 
 <style>
+
+.regb_p {
+    padding: 0;
+}
+
+.pgoogle {
+    padding: 0;
+}
+
+.register_fullcontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+}
+
+.regbutton_fire {
+    background-color: #EC4040;
+    color: white;
+    margin-top: 40px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border: none;
+    cursor: pointer;
+    height: 54px;
+    width: 622px;
+    border-radius: 10px;
+    box-shadow: 2px 6px 4px rgba(0, 0, 0, 0.15);
+    font-size: 20px;
+    font-weight: semibold;
+
+
+}
+
+.sign-up-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
 
 .backgroundicons-register {
     position: absolute;
@@ -258,7 +300,7 @@ input[type=password] {
     height: 54px;
     padding: 12px 14px;
     margin: 10px 0;
-    border-radius: 10%;
+    border-radius: 10px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     font-size: 20px;
 }
@@ -267,6 +309,8 @@ input[type=password] {
     color: #808080;
     background-color: white;
     cursor: pointer;
+    width: 622px;
+    border-style: none;
 
     background-image: url('@/assets/GoogleLogo.png'); /* path to your custom arrow icon */
     background-repeat: no-repeat;
