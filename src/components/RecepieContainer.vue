@@ -2,8 +2,8 @@
   <div class="recepiecontainer">
     <img
         v-if="isHeartActive"
-        src="@/assets/BurgerIcon.svg"
-        alt="Heart Icon"
+        src="@/assets/ActiveHeartIcon.svg"
+        alt="Active Heart Icon"
         class="heart-icon"
         @click="toggleHeartIcon"
     />
@@ -224,6 +224,7 @@ p {
   width: 20px;
   height: 20px;
   z-index: 10;
+  cursor: pointer;
 }
 
 .dots-icon {
