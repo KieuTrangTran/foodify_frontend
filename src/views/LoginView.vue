@@ -20,7 +20,7 @@
                     <p class="p_google"><button class="google" @click="signInWithGoogle">Continue with Google</button></p>
             </div>
             <div class="google-apple">
-                <button class="apple">Continue with Apple</button>
+                <button class="apple" @click="showAlert">Continue with Apple</button>
                 <div class="NoAccount">
                 <p>Don't have an account?</p>
                     <a href="/register" >Sign up now</a>
@@ -55,6 +55,10 @@ export default {
     const repeatPassword = ref('');
     const errMsg = ref(); // ERROR MESSAGE
     
+    const showAlert = () => {
+    alert("Continue with Apple clicked!");
+  };
+
     const register = () => {
     
         const auth = getAuth();
@@ -97,7 +101,7 @@ export default {
 });
     };
 
-    return { email, password, register, signInWithGoogle, signInWithPopup };
+    return { email, password, register, signInWithGoogle, signInWithPopup, showAlert };
   }
 }
 </script>

@@ -21,7 +21,7 @@
                     <p class="pgoogle"> <button class="google" @click="signInWithGoogle">Sign Up with Google</button></p>
                 </div>
                 <div class="google-apple">
-                    <button class="apple">Sign Up with Apple</button>
+                    <button class="apple" @click="showAlert">Sign Up with Apple</button>
                     <div class="AlrdyAccount">
                         <p>Already have an account?</p>
                         <a href="/login">Sign in now</a>
@@ -57,6 +57,10 @@ export default {
     const password = ref('');
     const repeatPassword = ref('');
 
+    const showAlert = () => {
+    alert("Sign Up with Apple clicked!");
+  };
+
     const register = () => {
         createUserWithEmailAndPassword(getAuth(), email.value, password.value)
             .then((userCredential) => {
@@ -84,7 +88,7 @@ export default {
 });
     };
 
-    return { email, password, repeatPassword, register, signInWithGoogle, signInWithPopup };
+    return { email, password, repeatPassword, register, signInWithGoogle, signInWithPopup, showAlert };
   }
 }
 </script>
