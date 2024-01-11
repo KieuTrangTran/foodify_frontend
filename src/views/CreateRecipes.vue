@@ -13,24 +13,6 @@
           <input v-model.number="prepTimeField" type="number" placeholder="Vorbereitungszeit">
           <button @click="createRecipe">Create Recipes</button>
 
-    <div v-for="recipe in allRecipes" :key="recipe.id">
-            <RecipeContainer
-                :name="recipe.name"
-                :calories="recipe.calories"
-                :cookTime="recipe.cookTime"
-                :prepTime="recipe.prepTime"
-            />
-        </div>
-
-    <section>{{ allRecipes }}</section>
-    <div>
-        <div v-for="recipe in allRecipes" :key="recipe.id">
-                <h2>{{ recipe.name }}</h2>
-                <p>{{ recipe.calories }}</p>
-                <p>{{ recipe.cookTime }}</p>
-                <p>{{ recipe.prepTime }}</p>
-            </div>
-    </div>
 </div>
 
     
@@ -41,10 +23,11 @@
 <script>
 import NavBar from "@/components/NavBar.vue";
 import RecipeContainer from "@/components/RecepieContainer.vue";
+import FooterComponent from "../components/FooterComponent.vue";
 
 export default {
   name: "CreateRecipiesView",
-  components: { NavBar, RecipeContainer },
+  components: { NavBar, RecipeContainer, FooterComponent },
   data() {
     return {
       nameField: "",
@@ -92,7 +75,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 
 main {
     margin-top: 64px;
