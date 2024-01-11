@@ -51,7 +51,7 @@ export default {
       caloriesField: "",
       cookTimeField: "",
       prepTimeField: "",
-      allRecipes: [],
+      allRecipes: "",
     };
   },
   methods: {
