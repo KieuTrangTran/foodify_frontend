@@ -1,6 +1,19 @@
 <template>
   <div class="recepiecontainer">
-    <img src="@/assets/HeartIcon.svg" alt="Heart Icon" class="heart-icon" />
+    <img
+        v-if="isHeartActive"
+        src="@/assets/BurgerIcon.svg"
+        alt="Heart Icon"
+        class="heart-icon"
+        @click="toggleHeartIcon"
+    />
+    <img
+        v-else
+        src="@/assets/HeartIcon.svg"
+        alt="Heart Icon"
+        class="heart-icon"
+        @click="toggleHeartIcon"
+    />
     <img :src="image" :alt="title" class="container-image" />
     <img
       src="@/assets/dots.svg"
@@ -54,8 +67,8 @@ export default {
       editableRecipeData: {
         // Initialisieren Sie dies mit den Rezeptdaten
         // Beispiel: name: this.name, calories: this.calories, ...
-      }
-      // Andere Daten...
+      },
+      isHeartActive: false, // Zustandsvariable für das Herz-Icon
     }
   },
   methods: {
@@ -84,8 +97,10 @@ export default {
     },
     handleRecipeDeleted(deletedRecipeId) {
       this.$emit('recipe-deleted', deletedRecipeId);
-    }
-    // Andere Methoden...
+    },
+    toggleHeartIcon() {
+      this.isHeartActive = !this.isHeartActive;
+    },
   }
 }
 const showEditableWindow = ref(false)
