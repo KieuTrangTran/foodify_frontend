@@ -29,7 +29,7 @@
       <p class="containercalories">{{ recipe.calories }} CALS/{{ recipe.cookTime }} MIN.</p>
     </div>
     <div class="linkcontainer">
-      <a :href="link" class="containerlink">VIEW RECEPIE</a>
+      <a href="/overview" class="containerlink">VIEW RECEPIE</a>
     </div>
   </div>
   <div class="edit-window-overlay" v-if="showEditableWindow" @click.self="closeWindow">
