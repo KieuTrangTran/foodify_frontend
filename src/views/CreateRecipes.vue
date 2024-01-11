@@ -7,10 +7,10 @@
         <div class="createsection">
 
 
-    <input v-model="nameField" placeholder="Name">
-    <input v-model="caloriesField" placeholder="Kalorien">
-    <input v-model="cookTimeField" placeholder="Kochzeit">
-    <input v-model="prepTimeField" placeholder="Vorbereitungszeit">
+          <input v-model="nameField" type="text" placeholder="Name">
+          <input v-model.number="caloriesField" type="number" placeholder="Kalorien">
+          <input v-model.number="cookTimeField" type="number" placeholder="Kochzeit">
+          <input v-model.number="prepTimeField" type="number" placeholder="Vorbereitungszeit">
           <button @click="createRecipe">Create Recipes</button>
 
     <div v-for="recipe in allRecipes" :key="recipe.id">
@@ -188,14 +188,6 @@ button {
 
 button:hover {
   background-color: #bf3330;
-}
-
-input {
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
 }
 
 
