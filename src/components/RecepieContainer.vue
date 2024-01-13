@@ -55,7 +55,7 @@ export default {
     recipe: Object,
     image: {
       type: String,
-      default: '@/assets/PrepBox1.jpg' // Setzen Sie hier den Pfad zu Ihrem Standardbild
+      default: 'src/assets/PrepBox1.jpg' // Setzen Sie hier den Pfad zu Ihrem Standardbild
     }
   },
 
