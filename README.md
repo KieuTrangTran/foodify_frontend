@@ -1,6 +1,20 @@
 # foodify_frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+## What this App does
+
+Once opening the Webapp you can browse it like a normal Website. There are multiple interactive buttons, the ability to create, edit and delete a recipe aswell as the ability to register an account and log in.
+
+## Start the Frontend
+
+```sh
+npm run dev
+```
+Note: Also start the Backend for the Recipes to appear
+
+## Team Members
+
+- KieuTrangTran - Mtrk.: 586967
+- JordanStng    - Mrtk.: 586959
 
 ## Recommended IDE Setup
 
